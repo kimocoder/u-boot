@@ -881,6 +881,12 @@ config AUTOBOOT_MENU_SHOW
 	  environmnent variable (if enabled) and before handling the boot delay.
 	  See README.bootmenu for more details.
 
+config AUTOBOOT_MENU_MTK_SHOW
+	bool "Show MediaTek-specific menu on boot"
+	depends on AUTOBOOT_MENU_SHOW
+	help
+	  Show MediaTek-specific menu instead of the common boot menu.
+
 endmenu
 
 config USE_BOOTARGS
