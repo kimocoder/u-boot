@@ -47,4 +47,29 @@ config MT7629_BOOT_FROM_SNAND
 	bool
 	default n
 
+source "board/mediatek/common/Kconfig"
+
+choice
+	prompt "Device type for bootmenu"
+	default MT7629_BOOTMENU_SNAND
+	depends on MEDIATEK_BOOTMENU
+
+config MT7629_BOOTMENU_SNOR
+	bool "SPI-NOR"
+	depends on !MT7629_BOOT_FROM_SNAND
+
+config MT7629_BOOTMENU_SNOR_SB
+	bool "SPI-NOR (with ATF)"
+	depends on !MT7629_BOOT_FROM_SNAND
+
+config MT7629_BOOTMENU_SNAND
+	bool "SPI-NAND"
+	depends on MT7629_BOOT_FROM_SNAND
+
+config MT7629_BOOTMENU_SNAND_SB
+	bool "SPI-NAND (with ATF)"
+	depends on MT7629_BOOT_FROM_SNAND
+
+endchoice
+
 endif
