@@ -14,4 +14,25 @@ config MTK_BROM_HEADER_INFO
 	string
 	default "media=nor"
 
+source "board/mediatek/common/Kconfig"
+
+choice
+	prompt "Device type for bootmenu"
+	default MT7622_BOOTMENU_SNAND
+	depends on MEDIATEK_BOOTMENU
+
+config MT7622_BOOTMENU_SNOR
+	bool "SPI-NOR"
+
+config MT7622_BOOTMENU_SNAND
+	bool "SPI-NAND"
+
+config MT7622_BOOTMENU_EMMC
+	bool "eMMC"
+
+config MT7622_BOOTMENU_SD
+	bool "SD"
+
+endchoice
+
 endif
